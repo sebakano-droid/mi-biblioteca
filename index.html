@@ -1099,7 +1099,11 @@
                                         <div className="space-y-2">
                                             {readBooks.map(book => (
                                                 <div key={book.id} className="flex items-center gap-3 bg-green-50 p-3 rounded-lg">
-                                                    <span className="text-2xl">{book.cover}</span>
+                                                    {book.cover?.startsWith('http') ? (
+                                                        <img src={book.cover} alt={book.title} className="w-12 h-16 object-cover rounded shadow" />
+                                                    ) : (
+                                                        <span className="text-2xl">{book.cover || '📗'}</span>
+                                                    )}
                                                     <div>
                                                         <p className="font-medium">{book.title}</p>
                                                         <p className="text-sm text-gray-500">{book.author}</p>
@@ -1116,7 +1120,11 @@
                                         <div className="space-y-2">
                                             {unreadBooks.map(book => (
                                                 <div key={book.id} className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
-                                                    <span className="text-2xl">{book.cover}</span>
+                                                    {book.cover?.startsWith('http') ? (
+                                                        <img src={book.cover} alt={book.title} className="w-12 h-16 object-cover rounded shadow" />
+                                                    ) : (
+                                                        <span className="text-2xl">{book.cover || '📗'}</span>
+                                                    )}
                                                     <div>
                                                         <p className="font-medium">{book.title}</p>
                                                         <p className="text-sm text-gray-500">{book.author}</p>
@@ -1697,7 +1705,11 @@
                                     wishlist.map(book => (
                                         <div key={book.id} className="bg-white rounded-xl p-4 border shadow-sm">
                                             <div className="flex items-start gap-3">
-                                                <span className="text-3xl">🛒</span>
+                                                {book.cover?.startsWith('http') ? (
+                                                    <img src={book.cover} alt={book.title} className="w-12 h-16 object-cover rounded shadow" />
+                                                ) : (
+                                                    <span className="text-3xl">🛒</span>
+                                                )}
                                                 <div className="flex-1">
                                                     <h4 className="font-semibold text-gray-900">{book.title}</h4>
                                                     <p className="text-sm text-gray-500">{book.author}</p>
@@ -1705,7 +1717,15 @@
                                                 </div>
                                             </div>
                                             <div className="flex gap-2 mt-3">
-                                                <button onClick={() => buyBook(book)} className="flex-1 bg-green-600 text-white text-sm py-2 rounded-lg hover:bg-green-700">✓ Ya lo compré</button>
+                                                <a
+                                                    href={book.amazonLink || `https://www.amazon.com/s?k=${encodeURIComponent(book.title + ' ' + book.author)}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1 bg-yellow-500 text-white text-sm py-2 rounded-lg hover:bg-yellow-600 text-center"
+                                                >
+                                                    🛒 Comprar en Amazon
+                                                </a>
+                                                <button onClick={() => buyBook(book)} className="px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 text-sm">✓ Comprado</button>
                                                 <button onClick={() => removeFromWishlist(book.id)} className="px-3 py-2 text-gray-400 hover:text-red-500"><Icons.X /></button>
                                             </div>
                                         </div>
