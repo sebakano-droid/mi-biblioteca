@@ -252,7 +252,7 @@
                             <div className="flex items-center gap-3">
                                 <span className="text-2xl">📷</span>
                                 <div>
-                                    <p className="font-medium text-purple-900 text-sm">Escaneá tu estantería con AI</p>
+                                    <p className="font-medium text-purple-900 text-sm">Escaneá tu estantería</p>
                                     <p className="text-xs text-purple-700">Sacale una foto a tus libros y los detectamos automáticamente</p>
                                 </div>
                             </div>
@@ -706,9 +706,9 @@
                     if (mediaType === 'video') {
                         setScanProgress('Extrayendo frames del video...');
                         images = await extractFramesFromVideo(mediaFile, 4);
-                        setScanProgress(`Analizando ${images.length} frames con IA...`);
+                        setScanProgress(`Analizando ${images.length} frames ...`);
                     } else {
-                        setScanProgress('Analizando imagen con IA...');
+                        setScanProgress('Analizando imagen ...');
                         const base64 = await toBase64(mediaFile);
                         images = [base64];
                     }
@@ -774,7 +774,7 @@
                         {!results ? (
                             <>
                                 <p className="text-sm text-gray-600 mb-4">
-                                    Sacale una <strong>foto</strong> o <strong>video</strong> a tu estantería y Claude AI detectará automáticamente los libros.
+                                    Sacale una <strong>foto</strong> o <strong>video</strong> a tu estantería y los libros se detectarán automáticamente.
                                 </p>
 
                                 <div
@@ -811,7 +811,7 @@
                                 <input
                                     ref={fileInputRef}
                                     type="file"
-                                    accept="image/*,video/*"
+                                    accept="image/jpeg,image/png,image/gif,image/webp,image/heic,video/mp4,video/quicktime,video/webm"
                                     onChange={handleFileSelect}
                                     className="hidden"
                                 />
@@ -830,11 +830,11 @@
                                     {scanning ? (
                                         <>
                                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                            {scanProgress || 'Analizando con Claude AI...'}
+                                            {scanProgress || 'Analizando imagen...'}
                                         </>
                                     ) : (
                                         <>
-                                            <Icons.Sparkles /> Escanear {mediaType === 'video' ? 'video' : 'foto'}
+                                            <Icons.Search /> Escanear {mediaType === 'video' ? 'video' : 'foto'}
                                         </>
                                     )}
                                 </button>
@@ -1659,7 +1659,7 @@
                                             </div>
                                             <div className="flex-1 text-white">
                                                 <h3 className="font-bold text-lg">¡Escaneá tu estantería!</h3>
-                                                <p className="text-purple-100 text-sm">Sacá una foto o video y agregamos todos tus libros automáticamente con IA</p>
+                                                <p className="text-purple-100 text-sm">Sacá una foto o video y agregamos todos tus libros automáticamente</p>
                                             </div>
                                             <div className="text-white/80">
                                                 <Icons.ChevronRight />
