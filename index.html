@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Biblioteca</title>
+    <title>bibliotecask</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -14,7 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
     <style>
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-bg { background: #1a1a1a; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .animate-spin { animation: spin 1s linear infinite; }
     </style>
@@ -175,7 +175,7 @@
                     <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
                         <div className="text-center mb-6">
                             <span className="text-6xl">📚</span>
-                            <h1 className="text-2xl font-bold mt-4">Mi Biblioteca</h1>
+                            <h1 className="text-2xl font-bold mt-4">bibliotecask</h1>
                             <p className="text-gray-500 mt-1">
                                 {isLogin ? 'Iniciá sesión para continuar' : 'Creá tu cuenta gratis'}
                             </p>
@@ -189,7 +189,7 @@
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
                                         placeholder="Tu nombre"
                                     />
                                 </div>
@@ -201,7 +201,7 @@
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
                                     placeholder="tu@email.com"
                                     required
                                 />
@@ -213,7 +213,7 @@
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
                                     placeholder="••••••••"
                                     required
                                     minLength={6}
@@ -229,7 +229,7 @@
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-indigo-600 text-white py-3 rounded-xl font-medium hover:bg-indigo-700 disabled:opacity-50 flex items-center justify-center gap-2"
+                                className="w-full bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 disabled:opacity-50 flex items-center justify-center gap-2"
                             >
                                 {loading ? (
                                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -242,18 +242,18 @@
                         <div className="mt-6 text-center">
                             <button
                                 onClick={() => { setIsLogin(!isLogin); setError(''); }}
-                                className="text-indigo-600 hover:text-indigo-800 text-sm"
+                                className="text-gray-700 hover:text-gray-800 text-sm"
                             >
                                 {isLogin ? '¿No tenés cuenta? Crear una' : '¿Ya tenés cuenta? Iniciar sesión'}
                             </button>
                         </div>
 
-                        <div className="mt-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4 border border-purple-100">
+                        <div className="mt-6 bg-gradient-to-r from-gray-50 to-gray-50 rounded-xl p-4 border border-gray-200">
                             <div className="flex items-center gap-3">
                                 <span className="text-2xl">📷</span>
                                 <div>
-                                    <p className="font-medium text-purple-900 text-sm">Escaneá tu estantería</p>
-                                    <p className="text-xs text-purple-700">Sacale una foto a tus libros y los detectamos automáticamente</p>
+                                    <p className="font-medium text-gray-900 text-sm">Escaneá tu estantería</p>
+                                    <p className="text-xs text-gray-600">Sacale una foto a tus libros y los detectamos automáticamente</p>
                                 </div>
                             </div>
                         </div>
@@ -335,7 +335,7 @@
                         <div className="mt-3 pt-3 border-t border-gray-100">
                             {!showRating ? (
                                 <div className="flex gap-2">
-                                    <button onClick={() => setShowRating(true)} className="flex-1 text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+                                    <button onClick={() => setShowRating(true)} className="flex-1 text-sm text-gray-700 hover:text-indigo-700 font-medium">
                                         {book.ratings ? 'Editar valoración' : 'Valorar'}
                                     </button>
                                     <button onClick={() => onRecommend(book)} className="flex items-center gap-1 text-sm text-pink-600 hover:text-pink-700">
@@ -354,7 +354,7 @@
                                         </div>
                                     ))}
                                     <div className="flex gap-2 pt-2">
-                                        <button onClick={() => { onRate(book.id, tempRatings); setShowRating(false); }} className="flex-1 bg-indigo-600 text-white text-sm py-1.5 rounded-lg hover:bg-indigo-700">
+                                        <button onClick={() => { onRate(book.id, tempRatings); setShowRating(false); }} className="flex-1 bg-gray-900 text-white text-sm py-1.5 rounded-lg hover:bg-gray-800">
                                             Guardar
                                         </button>
                                         <button onClick={() => setShowRating(false)} className="px-3 text-gray-500 hover:text-gray-700">
@@ -373,7 +373,7 @@
             return (
                 <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-4 border border-pink-100">
                     <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-lg">
+                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-lg">
                             {rec.fromName?.charAt(0)?.toUpperCase() || '?'}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -387,7 +387,7 @@
                             {rec.basedOn && (
                                 <div className="flex items-center gap-1.5 mt-2 bg-white/60 rounded-full px-2.5 py-1 w-fit">
                                     <Icons.Link />
-                                    <span className="text-xs text-purple-700">Porque te gustó <strong>{rec.basedOn}</strong></span>
+                                    <span className="text-xs text-gray-600">Porque te gustó <strong>{rec.basedOn}</strong></span>
                                 </div>
                             )}
 
@@ -398,7 +398,7 @@
                     </div>
 
                     <div className="flex gap-2 mt-3">
-                        <button onClick={() => onAddToList(rec)} className="flex-1 bg-indigo-600 text-white text-sm py-2 rounded-lg hover:bg-indigo-700 flex items-center justify-center gap-1">
+                        <button onClick={() => onAddToList(rec)} className="flex-1 bg-gray-900 text-white text-sm py-2 rounded-lg hover:bg-gray-800 flex items-center justify-center gap-1">
                             📚 Ya lo tengo
                         </button>
                         <button onClick={() => onAddToWishlist(rec)} className="flex-1 bg-amber-500 text-white text-sm py-2 rounded-lg hover:bg-amber-600 flex items-center justify-center gap-1">
@@ -425,25 +425,25 @@
                         <div className="space-y-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Título</label>
-                                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej: Don Quijote" />
+                                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500" placeholder="Ej: Don Quijote" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Autor</label>
-                                <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej: Miguel de Cervantes" />
+                                <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500" placeholder="Ej: Miguel de Cervantes" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Portada</label>
                                 <div className="flex gap-2">
                                     {covers.map((c) => (
-                                        <button key={c} onClick={() => setCover(c)} className={`text-3xl p-2 rounded-lg transition-colors ${cover === c ? 'bg-indigo-100 ring-2 ring-indigo-500' : 'hover:bg-gray-100'}`}>
+                                        <button key={c} onClick={() => setCover(c)} className={`text-3xl p-2 rounded-lg transition-colors ${cover === c ? 'bg-gray-100 ring-2 ring-indigo-500' : 'hover:bg-gray-100'}`}>
                                             {c}
                                         </button>
                                     ))}
                                 </div>
                             </div>
                         </div>
-                        <button onClick={() => { if (title && author) { onAdd({ title, author, cover }); onClose(); }}} disabled={!title || !author} className="w-full mt-6 bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
-                            Agregar a mi biblioteca
+                        <button onClick={() => { if (title && author) { onAdd({ title, author, cover }); onClose(); }}} disabled={!title || !author} className="w-full mt-6 bg-gray-900 text-white py-2.5 rounded-lg font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Agregar a bibliotecask
                         </button>
                     </div>
                 </div>
@@ -492,7 +492,7 @@
             // Generar link de WhatsApp para compartir
             const shareViaWhatsApp = () => {
                 const appUrl = window.location.origin;
-                const message = `📚 ¡Te recomiendo leer "${book.title}" de ${book.author}!${basedOnBook ? `\n\nPorque te gustó "${basedOnBook}"` : ''}${comment ? `\n\n"${comment}"` : ''}\n\n👉 Abrí Mi Biblioteca para verlo: ${appUrl}`;
+                const message = `📚 ¡Te recomiendo leer "${book.title}" de ${book.author}!${basedOnBook ? `\n\nPorque te gustó "${basedOnBook}"` : ''}${comment ? `\n\n"${comment}"` : ''}\n\n👉 Abrí bibliotecask para verlo: ${appUrl}`;
                 const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
             };
@@ -515,7 +515,7 @@
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Recomendar a amigos en la app:</label>
                                 <div className="flex gap-2 flex-wrap">
                                     {friends.map(friend => (
-                                        <button key={friend.id} onClick={() => toggleFriend(friend.id)} className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${selectedFriends.includes(friend.id) ? 'bg-indigo-100 ring-2 ring-indigo-500' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                                        <button key={friend.id} onClick={() => toggleFriend(friend.id)} className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${selectedFriends.includes(friend.id) ? 'bg-gray-100 ring-2 ring-indigo-500' : 'bg-gray-50 hover:bg-gray-100'}`}>
                                             <div className="w-8 h-8 bg-indigo-200 rounded-full flex items-center justify-center text-sm font-medium">
                                                 {friend.name?.charAt(0)?.toUpperCase()}
                                             </div>
@@ -536,7 +536,7 @@
                             <select
                                 value={basedOnBook}
                                 onChange={(e) => setBasedOnBook(e.target.value)}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 text-sm"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 text-sm"
                             >
                                 <option value="">Seleccionar un libro</option>
                                 {readBooks.map(b => (
@@ -547,12 +547,12 @@
 
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700 mb-1">Tu comentario (opcional)</label>
-                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" rows={2} placeholder="¿Por qué lo recomendás?" />
+                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500" rows={2} placeholder="¿Por qué lo recomendás?" />
                         </div>
 
                         <div className="space-y-2">
                             {selectedFriends.length > 0 && (
-                                <button onClick={handleSend} disabled={sending} className="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-medium hover:bg-indigo-700 disabled:opacity-50 flex items-center justify-center gap-2">
+                                <button onClick={handleSend} disabled={sending} className="w-full bg-gray-900 text-white py-2.5 rounded-lg font-medium hover:bg-gray-800 disabled:opacity-50 flex items-center justify-center gap-2">
                                     {sending ? <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : <><Icons.Share /> Enviar a {selectedFriends.length} amigo{selectedFriends.length > 1 ? 's' : ''}</>}
                                 </button>
                             )}
@@ -571,7 +571,7 @@
             const appUrl = window.location.origin;
 
             const shareWhatsApp = () => {
-                const message = `📚 ¡Unite a Mi Biblioteca!\n\n${userProfile?.name || 'Alguien'} te invita a compartir recomendaciones de libros.\n\n👉 Creá tu cuenta gratis: ${appUrl}`;
+                const message = `📚 ¡Unite a bibliotecask!\n\n${userProfile?.name || 'Alguien'} te invita a compartir recomendaciones de libros.\n\n👉 Creá tu cuenta gratis: ${appUrl}`;
                 window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
             };
 
@@ -603,7 +603,7 @@
                         </div>
 
                         <div className="mt-4 p-3 bg-indigo-50 rounded-lg">
-                            <p className="text-xs text-indigo-800">
+                            <p className="text-xs text-gray-800">
                                 💡 Cuando tus amigos se registren con el mismo email que les mandaste, van a poder agregarte como amigo.
                             </p>
                         </div>
@@ -785,7 +785,7 @@
                                         mediaType === 'video' ? (
                                             <div className="relative">
                                                 <video src={mediaPreview} className="max-h-48 mx-auto rounded-lg" controls />
-                                                <div className="mt-2 inline-flex items-center gap-1 bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
+                                                <div className="mt-2 inline-flex items-center gap-1 bg-purple-100 text-gray-600 px-2 py-1 rounded-full text-xs">
                                                     <Icons.Video /> Video cargado
                                                 </div>
                                             </div>
@@ -825,7 +825,7 @@
                                 <button
                                     onClick={scanBooks}
                                     disabled={scanning || !mediaFile}
-                                    className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-xl font-medium hover:bg-indigo-700 disabled:opacity-50 flex items-center justify-center gap-2"
+                                    className="w-full mt-4 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 disabled:opacity-50 flex items-center justify-center gap-2"
                                 >
                                     {scanning ? (
                                         <>
@@ -923,7 +923,7 @@
                                     <button
                                         onClick={addSelectedBooks}
                                         disabled={selectedBooks.length === 0}
-                                        className="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-medium hover:bg-indigo-700 disabled:opacity-50"
+                                        className="flex-1 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 disabled:opacity-50"
                                     >
                                         Agregar {selectedBooks.length} libros
                                     </button>
@@ -1026,7 +1026,7 @@
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 mb-3"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 mb-3"
                                     placeholder="amigo@email.com"
                                 />
 
@@ -1035,7 +1035,7 @@
                                 <button
                                     onClick={handleRequestAccess}
                                     disabled={loading || !email.trim()}
-                                    className="w-full bg-indigo-600 text-white py-3 rounded-xl font-medium hover:bg-indigo-700 disabled:opacity-50"
+                                    className="w-full bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 disabled:opacity-50"
                                 >
                                     {loading ? 'Enviando...' : 'Solicitar acceso'}
                                 </button>
@@ -1211,7 +1211,7 @@
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 mb-3"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 mb-3"
                                     placeholder="amigo@email.com"
                                 />
 
@@ -1220,7 +1220,7 @@
                                 <button
                                     onClick={handleAddFriend}
                                     disabled={loading || !email.trim()}
-                                    className="w-full bg-indigo-600 text-white py-3 rounded-xl font-medium hover:bg-indigo-700 disabled:opacity-50"
+                                    className="w-full bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 disabled:opacity-50"
                                 >
                                     {loading ? 'Buscando...' : 'Agregar amigo'}
                                 </button>
@@ -1591,7 +1591,7 @@
                                                 <div className="fixed inset-0 z-40" onClick={() => setShowAddOptions(false)} />
                                                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border z-50 overflow-hidden">
                                                     <button onClick={() => { setShowAddOptions(false); setShowAddModal(true); }} className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50">
-                                                        <span className="text-indigo-600"><Icons.Plus /></span>
+                                                        <span className="text-gray-700"><Icons.Plus /></span>
                                                         <span>Agregar libro</span>
                                                     </button>
                                                     <button onClick={() => { setShowAddOptions(false); setShowScanModal(true); }} className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-50 border-t">
@@ -1614,12 +1614,12 @@
                         <div className="max-w-2xl mx-auto px-4">
                             <div className="flex">
                                 {[
-                                    { id: 'biblioteca', label: 'Mi Biblioteca', icon: Icons.Book },
+                                    { id: 'biblioteca', label: 'bibliotecask', icon: Icons.Book },
                                     { id: 'comprar', label: `Lista de compras${wishlist.length ? ` (${wishlist.length})` : ''}`, icon: () => <span>🛒</span> },
                                     { id: 'amigos', label: 'Amigos', icon: Icons.Users },
                                     { id: 'recomendaciones', label: 'Recomendaciones', icon: () => <span>💡</span> }
                                 ].map(({ id, label, icon: Icon }) => (
-                                    <button key={id} onClick={() => setActiveTab(id)} className={`flex-1 flex items-center justify-center gap-1 py-3 border-b-2 transition-colors text-xs sm:text-sm ${activeTab === id ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+                                    <button key={id} onClick={() => setActiveTab(id)} className={`flex-1 flex items-center justify-center gap-1 py-3 border-b-2 transition-colors text-xs sm:text-sm ${activeTab === id ? 'border-indigo-600 text-gray-700' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
                                         <Icon /> <span className="text-sm">{label}</span>
                                     </button>
                                 ))}
@@ -1633,7 +1633,7 @@
                                 <div className="flex gap-2 mb-4">
                                     <div className="flex-1 relative">
                                         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><Icons.Search /></span>
-                                        <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Buscar..." className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500" />
+                                        <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Buscar..." className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-500" />
                                     </div>
                                     <select value={filter} onChange={(e) => setFilter(e.target.value)} className="px-3 py-2 border border-gray-200 rounded-lg text-gray-700">
                                         <option value="todos">Todos</option>
@@ -1743,14 +1743,14 @@
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
                                     <h2 className="text-lg font-semibold text-gray-900">Libros de amigos</h2>
-                                    <button onClick={() => setShowAddFriendModal(true)} className="text-indigo-600 text-sm font-medium">
+                                    <button onClick={() => setShowAddFriendModal(true)} className="text-gray-700 text-sm font-medium">
                                         + Agregar amigo
                                     </button>
                                 </div>
 
-                                {/* Compartir mi biblioteca */}
+                                {/* Compartir bibliotecask */}
                                 <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
-                                    <h3 className="font-medium text-purple-900 mb-2">🔗 Compartí tu biblioteca</h3>
+                                    <h3 className="font-medium text-gray-900 mb-2">🔗 Compartí tu biblioteca</h3>
                                     <div className="flex gap-2">
                                         <input
                                             type="text"
@@ -1774,7 +1774,7 @@
                                     <div className="text-center py-8 text-gray-500">
                                         <span className="text-5xl block mb-3">👥</span>
                                         <p>Todavía no tenés amigos agregados</p>
-                                        <button onClick={() => setShowInviteModal(true)} className="mt-3 bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg">
+                                        <button onClick={() => setShowInviteModal(true)} className="mt-3 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg">
                                             Invitar por WhatsApp
                                         </button>
                                     </div>
@@ -1798,7 +1798,7 @@
                                                             <span className="font-medium">{friend.name}</span>
                                                             <span className="text-xs text-gray-500">({friendBooksList.length} libros)</span>
                                                         </div>
-                                                        <button onClick={() => setViewingFriend(friend)} className="text-indigo-600 text-xs">Ver todo →</button>
+                                                        <button onClick={() => setViewingFriend(friend)} className="text-gray-700 text-xs">Ver todo →</button>
                                                     </div>
                                                     <div className="p-3 flex gap-2 overflow-x-auto">
                                                         {friendBooksList.slice(0, 5).map(book => (
@@ -1813,7 +1813,7 @@
                                                         ))}
                                                         {friendBooksList.length > 5 && (
                                                             <div className="flex-shrink-0 w-20 flex items-center justify-center">
-                                                                <button onClick={() => setViewingFriend(friend)} className="text-indigo-600 text-sm">+{friendBooksList.length - 5}</button>
+                                                                <button onClick={() => setViewingFriend(friend)} className="text-gray-700 text-sm">+{friendBooksList.length - 5}</button>
                                                             </div>
                                                         )}
                                                     </div>
@@ -1847,8 +1847,8 @@
 
                                 {/* Recomendaciones de IA */}
                                 {aiRecommendations.length > 0 && (
-                                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200">
-                                        <h3 className="font-medium text-purple-900 mb-3">🤖 Recomendaciones personalizadas</h3>
+                                    <div className="bg-gradient-to-r from-gray-50 to-pink-50 rounded-xl p-4 border border-purple-200">
+                                        <h3 className="font-medium text-gray-900 mb-3">🤖 Recomendaciones personalizadas</h3>
                                         <div className="space-y-3">
                                             {aiRecommendations.map((rec, idx) => (
                                                 <div key={idx} className="bg-white rounded-lg p-3 border flex items-start gap-3">
@@ -1859,7 +1859,7 @@
                                                         <div className="flex gap-2 mt-2">
                                                             <button
                                                                 onClick={() => addAiRecToWishlist(rec)}
-                                                                className="bg-indigo-100 text-indigo-700 text-xs px-3 py-1 rounded-full hover:bg-indigo-200"
+                                                                className="bg-gray-100 text-indigo-700 text-xs px-3 py-1 rounded-full hover:bg-indigo-200"
                                                             >
                                                                 + Lista de compras
                                                             </button>
@@ -1942,7 +1942,7 @@
                                 <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
                                     <h3 className="font-medium text-indigo-900 mb-2">📲 Invitá más amigos</h3>
                                     <p className="text-sm text-indigo-700 mb-3">Más amigos = mejores recomendaciones</p>
-                                    <button onClick={() => setShowInviteModal(true)} className="bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700">
+                                    <button onClick={() => setShowInviteModal(true)} className="bg-gray-900 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-800">
                                         Invitar por WhatsApp
                                     </button>
                                 </div>
@@ -2044,7 +2044,7 @@
                             ) : (
                                 <button
                                     onClick={() => addToMyWishlist(book)}
-                                    className="bg-indigo-100 text-indigo-700 text-xs px-3 py-1 rounded-full hover:bg-indigo-200"
+                                    className="bg-gray-100 text-indigo-700 text-xs px-3 py-1 rounded-full hover:bg-indigo-200"
                                 >
                                     + Mi lista
                                 </button>
@@ -2095,7 +2095,7 @@
                                 </div>
                                 {user && (
                                     <a href="/" className="bg-white/20 px-3 py-1 rounded-lg text-sm hover:bg-white/30">
-                                        Mi biblioteca
+                                        bibliotecask
                                     </a>
                                 )}
                             </div>
@@ -2142,11 +2142,11 @@
 
                         <div className="mt-8 text-center">
                             {user ? (
-                                <a href="/" className="text-indigo-600 text-sm hover:underline">
-                                    ← Volver a mi biblioteca
+                                <a href="/" className="text-gray-700 text-sm hover:underline">
+                                    ← Volver a bibliotecask
                                 </a>
                             ) : (
-                                <a href="/" className="text-indigo-600 text-sm hover:underline">
+                                <a href="/" className="text-gray-700 text-sm hover:underline">
                                     ¿Querés crear tu propia biblioteca? →
                                 </a>
                             )}
