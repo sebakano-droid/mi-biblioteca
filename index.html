@@ -1093,7 +1093,7 @@
                             </div>
                         ) : (
                             <>
-                                {readBooks.length > 0 && (
+                                {readBooks.length > 0 && 
                                     <div className="mb-4">
                                         <h3 className="font-medium text-green-700 mb-2">✓ Leídos ({readBooks.length})</h3>
                                         <div className="space-y-2">
@@ -1574,10 +1574,10 @@
                         <div className="max-w-2xl mx-auto px-4 py-6">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <span className="text-3xl">📚</span>
+                                    <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center text-sm font-bold text-gray-900">B</div>
                                     <div>
                                         <h1 className="text-xl font-bold">Hola, {userProfile?.name?.split(' ')[0] || 'Usuario'}</h1>
-                                        <p className="text-indigo-200 text-sm">{stats.leidos} leídos · {stats.pendientes} pendientes</p>
+                                        <p className="text-gray-300 text-sm">{stats.leidos} leídos · {stats.pendientes} pendientes</p>
                                     </div>
                                 </div>
 
