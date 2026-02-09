@@ -30,17 +30,19 @@ exports.handler = async (event) => {
     // Construir el contenido con todas las imágenes
     const content = [];
 
-    // Agregar todas las imágenes
-    imageList.forEach((img, index) => {
-      content.push({
-        type: 'image',
-        source: {
-          type: 'base64',
-          media_type: 'image/jpeg',
-          data: img
-        }
-      });
-    });
+   // Agregar todas las imágenes
+imageList.forEach((img, index) => {
+  // Limpiar el prefijo data:image/...;base64, si existe
+  const base64Data = img.replace(/^data:image\/[a-z]+;base64,/, '');
+  content.push({
+    type: 'image',
+    source: {
+      type: 'base64',
+      media_type: 'image/jpeg',
+      data: base64Data
+    }
+  });
+});
 
     // Agregar el prompt
     const isVideo = imageList.length > 1;
